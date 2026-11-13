@@ -164,9 +164,9 @@
     return "data:image/svg+xml," + encodeURIComponent(svg);
   }
 
-  function photo(watch, n, eager) {
+  function photo(watch, n) {
     const fallback = placeholder(watches.indexOf(watch));
-    const img = el("img", { alt: watch.name, loading: eager ? "eager" : "lazy", decoding: "async" });
+    const img = el("img", { alt: watch.name, decoding: "async" });
     img.onerror = () => { img.onerror = null; img.src = fallback; };
     img.src = (watch.images && watch.images[n]) || fallback;
     return img;
@@ -203,7 +203,7 @@
   let current = null;
 
   function showPhoto(watch, n) {
-    $("#p-figure").replaceChildren(photo(watch, n, true));
+    $("#p-figure").replaceChildren(photo(watch, n));
     $$("#p-thumbs button").forEach((b, i) => b.setAttribute("aria-current", String(i === n)));
   }
 
@@ -215,7 +215,7 @@
     $("#p-thumbs").replaceChildren(
       ...(count > 1
         ? watch.images.map((_, n) => {
-            const b = el("button", { type: "button", ariaLabel: `${watch.name} ${n + 1}` }, photo(watch, n, true));
+            const b = el("button", { type: "button", ariaLabel: `${watch.name} ${n + 1}` }, photo(watch, n));
             b.addEventListener("click", () => showPhoto(watch, n));
             return b;
           })
