@@ -106,7 +106,7 @@
       const saved = localStorage.getItem("tren-lang");
       if (saved === "hr" || saved === "en") return saved;
     } catch (_) {}
-    return /^(hr|bs|sr|sl)\b/i.test(navigator.language || "") ? "hr" : "en";
+    return "hr";
   }
 
   let lang = initialLang();
