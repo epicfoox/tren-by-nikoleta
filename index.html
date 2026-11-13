@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tren by Nikoleta — Satovi</title>
+  <meta name="description" content="Tren by Nikoleta — ručno rađeni satovi od smole i kamena, i satovi po narudžbi.">
+  <meta name="theme-color" content="#f7f5f0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23f7f5f0' stroke='%231b1a18' stroke-width='2'/%3E%3Cpath d='M16 8v8l5 3' fill='none' stroke='%231b1a18' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav nav-left" aria-label="Main">
+    <a href="#satovi" data-i18n="nav.watches">Satovi</a>
+    <a href="#custom" data-i18n="nav.custom">Custom</a>
+  </nav>
+  <a class="wordmark" href="#top">Tren <span>by Nikoleta</span></a>
+  <div class="nav nav-right">
+    <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
+    <button type="button" class="lang" id="lang" aria-label="Language">EN</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <h1 data-i18n-html="hero.title">Uhvati <em>tren.</em></h1>
+    <p data-i18n="hero.lede">Ručno rađeni satovi od smole i kamena. Svaki je unikat.</p>
+  </section>
+
+  <section class="collection" id="satovi" aria-labelledby="satovi-title">
+    <h2 class="sr-only" id="satovi-title" data-i18n="col.title">Kolekcija</h2>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="split" id="custom">
+    <div class="split-text">
+      <p class="kicker" data-i18n="nav.custom">Custom</p>
+      <h2 data-i18n="custom.title">Sat po tvojoj želji</h2>
+      <p class="lede" data-i18n="custom.lede">Imaš ideju? Opiši sat kakav želiš i javit ćemo se s prijedlogom i cijenom.</p>
+      <ol class="steps">
+        <li><strong data-i18n="step1.t">Opiši</strong><span data-i18n="step1.d">Napiši što zamišljaš. Što više detalja, to bolje.</span></li>
+        <li><strong data-i18n="step2.t">Dogovor</strong><span data-i18n="step2.d">Javimo se s prijedlogom, cijenom i rokom.</span></li>
+        <li><strong data-i18n="step3.t">Izrada</strong><span data-i18n="step3.d">Kad potvrdiš, tvoj sat kreće u izradu.</span></li>
+      </ol>
+    </div>
+
+    <form class="inquiry" data-kind="custom" novalidate>
+      <label class="field">
+        <span data-i18n="custom.field">Opiši svoj sat</span>
+        <textarea name="message" rows="6" required data-i18n-ph="custom.ph" placeholder="Boje, oblik, veličina, kamenje, brojke, prostor u koji ide… sve što ti je važno."></textarea>
+      </label>
+      <label class="field">
+        <span data-i18n="form.name">Ime</span>
+        <input name="name" type="text" autocomplete="name" required>
+      </label>
+      <label class="field" data-reach hidden>
+        <span data-i18n="form.contact">E-mail ili telefon</span>
+        <input name="contact" type="text" autocomplete="email">
+      </label>
+      <div class="actions"></div>
+      <p class="status" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <section class="split" id="kontakt">
+    <div class="split-text">
+      <p class="kicker" data-i18n="nav.contact">Kontakt</p>
+      <h2 data-i18n="contact.title">Javi nam se</h2>
+      <p class="lede" data-i18n="contact.lede">Sviđa ti se neki sat? Dostupnost, plaćanje i dostavu dogovaramo porukom.</p>
+      <ul class="links" id="links"></ul>
+    </div>
+
+    <form class="inquiry" data-kind="contact" novalidate>
+      <label class="field">
+        <span data-i18n="form.watch">Sat</span>
+        <select name="watch" id="watch-select"></select>
+      </label>
+      <label class="field">
+        <span data-i18n="form.message">Poruka</span>
+        <textarea name="message" id="contact-message" rows="4" required></textarea>
+      </label>
+      <label class="field">
+        <span data-i18n="form.name">Ime</span>
+        <input name="name" type="text" autocomplete="name" required>
+      </label>
+      <label class="field" data-reach hidden>
+        <span data-i18n="form.contact">E-mail ili telefon</span>
+        <input name="contact" type="text" autocomplete="email">
+      </label>
+      <div class="actions"></div>
+      <p class="status" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <span>© <span id="year">2026</span> Tren by Nikoleta</span>
+  <a href="#top" data-i18n="footer.top">Na vrh</a>
+</footer>
+
+<dialog class="product" id="product" aria-labelledby="p-name">
+  <div class="product-inner">
+    <button type="button" class="close" id="p-close" aria-label="Zatvori" data-i18n-aria="close">×</button>
+    <div class="product-media">
+      <figure id="p-figure"></figure>
+      <div class="thumbs" id="p-thumbs"></div>
+    </div>
+    <div class="product-info">
+      <h2 id="p-name"></h2>
+      <p class="price" id="p-price"></p>
+      <p class="desc" id="p-desc"></p>
+      <button type="button" class="btn" id="p-inquire" data-i18n="product.inquire">Pošalji upit za ovaj sat</button>
+      <p class="note" data-i18n="product.note">Kupnja ide dogovorom: javimo se s dostupnošću, plaćanjem i dostavom.</p>
+    </div>
+  </div>
+</dialog>
+
+<script src="products.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
